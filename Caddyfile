@@ -1,0 +1,40 @@
+{
+    # Global options
+    auto_https off
+    admin off
+}
+
+:80 {
+    # Root directory
+    root * /var/www/html/public
+    encode zstd gzip
+
+    # Security headers
+    header {
+        # Remove server information
+        -Server
+        # Security headers
+        X-Content-Type-Options "nosniff"
+        X-Frame-Options "SAMEORIGIN"
+        X-XSS-Protection "1; mode=block"
+        Referrer-Policy "strict-origin-when-cross-origin"
+        Permissions-Policy "geolocation=(), microphone=(), camera=()"
+    }
+
+    # PHP-FPM
+    php_fastcgi app:9000 {
+        # Split path info
+        split .php
+        index index.php
+    }
+
+    # Try files
+    try_files {path} {path}/ /index.php?{query}
+
+    # Logging
+    log {
+        output stdout
+        format console
+    }
+}
+
