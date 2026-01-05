@@ -23,6 +23,7 @@ up: ## Start all services
 	@echo "📧 Mailpit: http://localhost:8025"
 	@echo "📊 Horizon: http://localhost:8000/horizon"
 	@echo "📈 Pulse: http://localhost:8000/pulse"
+	@echo "🗄️  phpMyAdmin: http://localhost:8080"
 
 down: ## Stop all services
 	docker-compose down
