@@ -24,6 +24,8 @@ up: ## Start all services
 	@echo "📊 Horizon: http://localhost:8000/horizon"
 	@echo "📈 Pulse: http://localhost:8000/pulse"
 	@echo "🗄️  phpMyAdmin: http://localhost:8080"
+	@echo "📦 MinIO Console: http://localhost:9001"
+	@echo "📦 MinIO API: http://localhost:9000"
 
 down: ## Stop all services
 	docker-compose down
